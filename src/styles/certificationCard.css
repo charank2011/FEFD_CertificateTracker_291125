@@ -1,0 +1,211 @@
+/* Certification Card with 3D Flip Animation */
+.certification-card-wrapper {
+  perspective: 1000px;
+  height: 100%;
+  min-height: 350px;
+}
+
+.certification-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.certification-card.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  border-radius: 15px;
+  border: 2px solid #334155;
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+.card-header {
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+.card-header h4 {
+  font-size: 1.2rem;
+  color: #f1f5f9;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.card-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.card-body p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #cbd5e1;
+  line-height: 1.5;
+}
+
+.card-body strong {
+  color: #f1f5f9;
+}
+
+.provider, .duration, .price, .difficulty {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.difficulty-beginner {
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.2);
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.difficulty-intermediate {
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.2);
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.difficulty-advanced {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.2);
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.description {
+  font-size: 0.95rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.companies-section {
+  margin-top: 15px;
+}
+
+.companies-section .label {
+  font-weight: 600;
+  color: #f1f5f9;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.companies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.company {
+  display: inline-block;
+  background: rgba(99, 102, 241, 0.2);
+  color: #6366f1;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+  flex-shrink: 0;
+}
+
+.flip-hint {
+  color: #64748b;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.add-cert-btn {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  width: 100%;
+}
+
+.add-cert-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card-front,
+  .card-back {
+    padding: 20px;
+  }
+
+  .card-header h4 {
+    font-size: 1rem;
+  }
+
+  .card-body p {
+    font-size: 0.9rem;
+  }
+
+  .companies {
+    gap: 6px;
+  }
+
+  .company {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .certification-card-wrapper {
+    min-height: 300px;
+  }
+
+  .card-front,
+  .card-back {
+    padding: 15px;
+  }
+
+  .card-header h4 {
+    font-size: 0.95rem;
+  }
+
+  .card-body p {
+    font-size: 0.85rem;
+  }
+}
